@@ -10,6 +10,15 @@ class App extends React.Component {
     };
   }
 
+  getAverage() {
+    const grades = this.state.grades.filter(el => true);
+    console.log(grades);
+    const totalPoints = grades.reduce((item1, item2) => {
+      return parseInt(item1.grade) + parseInt(item2.grade);
+    }, 0);
+    return totalPoints / this.state.grades.length;
+  }
+
   componentDidMount() {
     fetch('api/grades')
       .then(data => data.json())
@@ -21,8 +30,8 @@ class App extends React.Component {
     const { grades } = this.state;
     return (
       <div>
-        <Header />
-        <GradeTable grades={grades}/>
+        <Header average={this.getAverage()} totalPoints={this.totalPoints}/>
+        <GradeTable grades={grades} />
       </div>
     );
 
