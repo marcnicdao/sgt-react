@@ -1,5 +1,13 @@
-.header {
-    display: flex;
-    justify-content: space-between;
+*{
+    box-sizing: border-box;
+}
+i{
+    width: 3rem;
+}
+button{
+    margin: 10px 5px 10px 0;
+}
+
+.header{
     padding: 0 10px;
 }
