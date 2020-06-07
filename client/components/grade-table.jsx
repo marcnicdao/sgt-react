@@ -6,9 +6,17 @@ export default class GradeTable extends React.Component {
     const { grades } = this.props;
     const row = grades.length > 0
       ? grades.map(grade => {
-        return <Grade key={grade.id} name={grade.name} course={grade.course} grade={grade.grade} />;
+        return <Grade key={grade.id}
+          name={grade.name}
+          course={grade.course}
+          grade={grade.grade}/>;
       })
-      : 'No grades recorded';
+      : (
+        <tr>
+          <td>No grades recorded</td>
+        </tr>
+
+      );
     return (
       <div>
         <table className="table table-striped">
@@ -19,9 +27,7 @@ export default class GradeTable extends React.Component {
               <th>Grade</th>
             </tr>
           </thead>
-          <tbody>
-            {row}
-          </tbody>
+          <tbody>{row}</tbody>
         </table>
 
       </div>
