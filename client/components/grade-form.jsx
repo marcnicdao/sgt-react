@@ -57,50 +57,45 @@ export default class GradeForm extends React.Component {
       <div className='form-container col-3'>
         <form className='grade=form d-flex flex-wrap'
           onSubmit={this.submitHandler}
-          onReset={this.resetHandler}
-        >
-          <div className='input'>
-            <label htmlFor="name">
-              <i className="fas fa-user"></i>
-            </label>
+          onReset={this.resetHandler} >
+          <div className="input-group">
+            <i className="fas fa-user fa-lg input-group-prepend  input-group-text"></i>
             <input type="text"
               name='name'
               id='name'
               placeholder='name'
-              className='name'
+              className='name form-control input-group-form'
               value={this.state.name}
-              onChange={this.onChangeHandler}/>
+              onChange={this.onChangeHandler} />
           </div>
-          <div className='input'>
-            <label htmlFor="course">
-              <i className="fas fa-list-alt"></i>
-            </label>
+
+          <div className="input-group">
+            <i className="fas fa-list-alt fa-lg input-group-prepend  input-group-text"></i>
             <input type="text"
               name='course'
               id='course'
               placeholder='course'
-              className='course'
+              className='course form-control input-group-form'
               value={this.state.course}
-              onChange={this.onChangeHandler}/>
+              onChange={this.onChangeHandler} />
           </div>
-          <div className='input'>
-            <label htmlFor="grade">
-              <i className="fas fa-graduation-cap"></i>
-            </label>
+          <div className='input-group'>
+            <i className="fas fa-graduation-cap fa-lg input-group-prepend  input-group-text"></i>
             <input type="text"
               name='grade'
               id='grade'
               placeholder='grade'
-              className='grade'
+              className='grade form-control input-group-form'
               value={this.state.grade}
               onChange={this.onChangeHandler}/>
           </div>
+
           <div className='form-button-container'>
-            <button type='submit'>Add</button>
-            <button type='reset'>Cancel</button>
+            <button type='submit' className="btn btn-success btn-sm">Add</button>
+            <button type='reset' className="btn btn-outline-secondary btn-sm">Cancel</button>
           </div>
         </form>
-      </div>
+      </div >
     );
   }
 }
