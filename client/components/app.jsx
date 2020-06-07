@@ -11,26 +11,24 @@ class App extends React.Component {
   }
 
   getAverage() {
-    const grades = this.state.grades.filter(el => true);
-    console.log(grades);
-    const totalPoints = grades.reduce((item1, item2) => {
-      return parseInt(item1.grade) + parseInt(item2.grade);
+    const grades = this.state.grades.map(el => el.grade);
+    const totalPoints = grades.reduce((n1, n2) => {
+      return Number(n1) + Number(n2);
     }, 0);
-    return totalPoints / this.state.grades.length;
+    return totalPoints / grades.length;
   }
 
   componentDidMount() {
     fetch('api/grades')
       .then(data => data.json())
-      .then(grades => this.setState({ grades: grades }))
-      .catch(error => console.error(error));
+      .then(grades => this.setState({ grades: grades }));
   }
 
   render() {
     const { grades } = this.state;
     return (
       <div>
-        <Header average={this.getAverage()} totalPoints={this.totalPoints}/>
+        <Header average={this.getAverage().toString()}/>
         <GradeTable grades={grades} />
       </div>
     );
