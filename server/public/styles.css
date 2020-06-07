@@ -4,3 +4,10 @@
 i{
     width: 3rem;
 }
+button{
+    margin: 10px 5px 10px 0;
+}
+
+.header{
+    padding: 0 10px;
+}
